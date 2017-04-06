@@ -1,0 +1,205 @@
+ 	<div class="content">
+ 		<form id="orderForm">
+ 			<!--  <input type="hidden" id="orderId" name="orderId" value=""/> -->
+ 			<div class="line">
+	 			<div class="module">
+	 				<label>起始港<span style="color: red;">*</span></label>
+	 				<div class="input-incomplete" data-source="/airport/query" cb-fnc="airportsCB" >
+	 				<input id="departName" name="departName" placeholder="请输入起始港"
+	 					onclick="hiddenErrorInfo(this)" onblur="changeUp(this.id)"/></div>
+	 				<input type="hidden" id="departCode" name="departCode" value="" />
+	 				<div id="errordepartName" style="display:none">
+		 				<img src="../common/img/common/unchecked.gif" />
+		 				<span style="color:red">请输入起始港</span>
+		 			</div>
+	 			</div>
+	 			<div class="module">
+	 				<label>目的港<span style="color: red;">*</span></label>
+	 				<div class="input-incomplete" data-source="/airport/query" cb-fnc="airportsCB" >
+	 				<input id="arriveName" name="arriveName" value="" placeholder="请输入目的港"
+	 					onclick="hiddenErrorInfo(this)" onblur="changeUp(this.id)"/></div>
+	 				<input type="hidden" id="arriveCode" name="arriveCode" value="" />
+	 				<div id="errorarriveName" style="display:none">
+		 				<img src="../common/img/common/unchecked.gif" />
+		 				<span style="color:red">请输入目的港</span>
+		 			</div>
+	 			</div>
+	 			<div class="module">
+	 				<label>航班日期<span style="color: red;">*</span></label>
+	 				<input id="flightDate" name="flightDate" value="" placeholder="请输入航班日期"
+	 					class="Wdate" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" autocomplete="off"
+	 					onclick="hiddenErrorInfo(this)"/>
+	 				<div id="errorflightDate" style="display:none">
+		 				<img src="../common/img/common/unchecked.gif" />
+		 				<span style="color:red">请输入航班日期</span>
+		 			</div>
+	 			</div>
+	 			<div class="module">
+	 				<label>航空公司</label>
+	 				<input id="carrier" name="carrier" value="" placeholder="请输入航空公司"
+	 					onblur="changeUp(this.id)"/>
+	 			</div>
+	 			<div class="module">
+	 				<label>运费单价<span style="color: red;">*</span></label>
+	 				<input id="customerPrice" name="customerPrice" value="" placeholder="请输入运费单价"
+	 					onclick="hiddenErrorInfo(this)"/>
+	 				<div id="errorcustomerPrice" style="display:none">
+		 				<img src="../common/img/common/unchecked.gif" />
+		 				<span style="color:red">请输入运费单价</span>
+		 			</div>
+	 			</div>	
+	 			<div class="module">
+	 				<label>货物类型</label>
+	 				<select id="cargoType" name="cargoType" >
+	 					<option value="PH">普货</option>
+	 					<option value="JGH">监管货</option>
+	 				</select>
+	 			</div>	
+	 			<div class="module">
+	 				<label>操作方式</label>
+	 				<select id="operateType" name="operateType" >
+	 					<option value="ZC">正常</option>
+	 					<option value="ZBG">自报关</option>
+	 					<option value="ZJJ">自交接</option>
+	 					<option value="ZBGZJJ">自报关自交接</option>
+	 					<option value="HJXC">货交现场</option>
+	 				</select>
+	 			</div>
+	 		</div>
+	 		<div style="clear:both"></div>
+	 		<div class="line">
+	 			<div class="module">
+	 				<label>发货人<span style="color:red">*</span></label>
+	 				<div class="input-incomplete" data-source="/cs/query" cb-fnc="shipperCB" >
+	 				<input style="width:398px;" id="shipper" name="shipper" value="" placeholder="请输入发货人"
+	 					onclick="hiddenErrorInfo(this)"/></div>
+	 				<div id="errorshipper" style="display:none">
+		 				<img src="../common/img/common/unchecked.gif" />
+		 				<span style="color:red">请输入发货人</span>
+		 			</div>
+	 			</div>
+	 			<div class="module">
+	 				<label>收货人<span style="color:red">*</span></label>
+	 				<div class="input-incomplete" data-source="/cs/query" cb-fnc="shipperCB" >
+	 				<input style="width:530px;" id="consignee" name="consignee" value="" placeholder="请输入收货人"
+	 					onclick="hiddenErrorInfo(this)"/></div>
+	 				<div id="errorconsignee" style="display:none">
+		 				<img src="../common/img/common/unchecked.gif" />
+		 				<span style="color:red">请输入收货人</span>
+		 			</div>
+	 			</div>
+	 		</div>
+	 		<div style="clear:both"></div>
+	 		<div class="line">
+	 			<div class="module">
+	 				<label>通知人<span style="color:red">*</span></label>
+	 				<div class="input-incomplete" data-source="/cs/query" cb-fnc="shipperCB" >
+	 				<input style="width:398px;" id="notifier" name="notifier" value="" placeholder="请输入通知人"
+	 					onclick="hiddenErrorInfo(this)"/></div>
+	 				<div id="errornotifier" style="display:none">
+		 				<img src="../common/img/common/unchecked.gif" />
+		 				<span style="color:red">请输入通知人</span>
+		 			</div>
+	 			</div>
+	 			<div class="module">
+	 				<label>品名<span style="color:red">*</span></label>
+	 				<input id="cargoCnName" name="cargoCnName" value="" placeholder="请输入品名"
+	 					onclick="hiddenErrorInfo(this)"/>
+	 				<div id="errorcargoCnName" style="display:none">
+		 				<img src="../common/img/common/unchecked.gif" />
+		 				<span style="color:red">请输入品名</span>
+		 			</div>
+	 			</div>
+	 			<div class="module" style="margin: 2px 6px;">
+	 				<label>件数<span style="color:red">*</span></label>
+	 				<input style="width:36px;" id=cargoNumber name="cargoNumber" value="" placeholder="件数"
+	 					onclick="hiddenErrorInfo(this)" onkeyup="this.value=this.value.replace(/\D/g,'')"  
+	 					onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+	 				<div id="errorcargoNumber" style="display:none">
+		 				<img src="../common/img/common/unchecked.gif" />
+		 				<span style="color:red">件数</span>
+		 			</div>
+	 			</div>
+	 			<div class="module" style="margin: 2px 6px;">
+	 				<label>重量(kg)<span style="color:red">*</span></label>
+	 				<input style="width:36px;" id="weight" name="weight" value="" placeholder="重量"
+	 					onclick="hiddenErrorInfo(this)"/>
+	 				<div id="errorweight" style="display:none">
+		 				<img src="../common/img/common/unchecked.gif" />
+		 				<span style="color:red">重量</span>
+		 			</div>
+	 			</div>
+	 			<div class="module" style="margin: 2px 6px;">
+	 				<label>体积<span style="color:red">*</span></label>
+	 				<input style="width:36px;" id="volume" name="volume" value="" placeholder="体积"
+	 					onclick="hiddenErrorInfo(this)"/>
+	 				<div id="errorvolume" style="display:none">
+		 				<img src="../common/img/common/unchecked.gif" />
+		 				<span style="color:red">体积</span>
+		 			</div>
+	 			</div>
+	 			<div class="module" style="margin: 2px 6px;">
+	 				<label>长(cm)</label>
+	 				<input style="width:36px;" id="length" name="length" value="" placeholder="长"/>
+	 			</div>
+	 			<div class="module" style="margin: 2px 6px;">
+	 				<label>宽(cm)</label>
+	 				<input style="width:36px;" id="width" name="width" value="" placeholder="宽"/>
+	 			</div>
+	 			<div class="module" style="margin: 2px 6px;">
+	 				<label>高(cm)</label>
+	 				<input style="width:36px;" id="height" name="height" value="" placeholder="高"/>
+	 			</div>
+	 		</div>
+	 		<div style="clear:both"></div>
+	 		<div class="line">
+	 			<div class="module">
+	 				<label>包装</label>
+	 				<input id="pack" name="pack" value="" placeholder="请输入包装方式"/>
+	 			</div>
+	 			<div class="module">
+	 				<label>比重</label>
+	 				<input id="proportion" name="proportion" value="" placeholder="请输入比重"/>
+	 			</div>
+	 			<div class="module">
+	 				<label>分泡比例</label>
+	 				<input id=fraction name="fraction" value="" placeholder="请输入分泡比例"/>
+	 			</div>	 			
+	 			<div class="module">
+	 				<label>付款方式</label>
+	 				<select id="payType" name="payType" style="width:122px">
+	 					<option value="YF">预付</option>
+	 					<option value="DF">到付</option>
+	 				</select>
+	 			</div>
+	 			<div class="module">
+	 				<label>进仓编号</label>
+	 				<input style="width:100px;" id="warehouseNo" name="warehouseNo" value="" placeholder="请输入进仓编号"/>
+	 			</div>
+	 			<div class="module">
+	 				<label>备注</label>
+	 				<input style="width:240px;" id="customerRemark" name="customerRemark" value="" placeholder="请输入备注"/>
+	 			</div>	
+	 		</div>	
+	 		<div style="clear:both"></div> 		
+	 		<div class="line">	
+	 			<div class="module">
+	 				<label>操作联系人</label>
+	 				<input type="hidden" id="csStaffId" name="csStaffId" value="" />
+	 				<select id="csStaffName" name="csStaffName" style="width:122px" onchange="changeCsStaffPhone(this)">
+	 					<option value="1">客服1</option>
+	 					<option value="2">客服2</option>
+	 					<option value="3">客服3</option>
+	 				</select>
+	 			</div>
+	 			<div class="module">
+	 				<label>联系方式</label>
+	 				<input style="width:100px;" id="csStaffPhone" name="csStaffPhone" value=""/>
+	 			</div>
+	 		</div>	 	
+	 		<div style="clear:both"></div> 					
+	 		<div class="line">	
+	 			<input class="btn" id="submit" onClick="saveOrder()"  value="创建订单" readOnly=true/>
+	 		</div>	 		
+ 		</form>
+ 	</div>

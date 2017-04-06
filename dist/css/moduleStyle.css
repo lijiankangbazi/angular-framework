@@ -1,0 +1,144 @@
+
+.header__header___Cynj7 {
+	height: 50px;
+	width: 100%;
+	background-color: #1B1818;
+    color: #CCCFD2;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+}
+
+.header__layout___38ZQK {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.header__logo___15qqD {
+	font-size: 18px;
+	height: 100%;
+	line-height: 50px;
+	float: left;
+	width: 100px;
+}
+
+.header__nav___264sD {
+	height: 100%;
+	float: left;
+}
+
+.header__nav___264sD li {
+	list-style-type: none;
+}
+
+.header__firstLayer___fn9sz {
+	width: 100px;
+	float: left;
+	height: 100%;
+}
+
+.header__nav___264sD ul {
+	margin: 0;
+	padding: 0;
+}
+
+.header__firstLayer___fn9sz ul{
+	margin: 0;
+	background-color: #25333b;
+	width: 140px;
+	display: none;
+}
+
+.header__firstLayer___fn9sz span {
+	display: block;
+    line-height: 50px;
+   
+}
+
+.header__firstLayer___fn9sz ul li {
+	cursor: pointer;
+	height: 25px;
+    line-height: 25px;
+    padding: 5px;
+	border-bottom: solid 1px;
+}
+
+.header__menu___115aD {
+	height: 100%;
+}
+
+.header__firstLayer___fn9sz:hover {
+	background-color: #25333b;
+}
+.header__firstLayer___fn9sz:hover > ul{
+	display: block;
+}
+a {
+	color: #CCCFD2;
+}.OrderEdit__content___audjK{
+	position:relative;
+	width:1024px;
+	max-width: 1024px;
+	padding: 82px 25px 0 25px;
+	margin-right: auto;
+	margin-left: auto;
+	z-index:999;
+	background:rgba(255,255,255,0.9);
+}
+.OrderEdit__content___audjK form label{
+	display: block;
+	margin-bottom: 5px;
+	color: #333;
+	font-weight: bold;
+} 
+.OrderEdit__content___audjK form span{
+}
+.OrderEdit__module___3mbQO{
+	float:left;
+	margin:2px 10px;
+}
+.OrderEdit__line___XFirf{
+    margin: 10px 0px 10px 5px;
+	height: 62px;
+	display: block;
+}
+.OrderEdit__content___audjK form select {
+	    display: block;
+    width: 120px;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    border: 1px solid #7387af;
+}
+.OrderEdit__btn___3L9d8{
+	width: 93.5%;
+    height: 36px;
+    background-color: #31af64;
+    border: 1px solid #31af64;
+    border-radius: 2px;
+    color: white;
+    padding: 2px 20px;
+    text-align: center;
+    transition-duration: .3s;
+    cursor: pointer;
+}
+.OrderEdit__btn___3L9d8:hover {
+    background-color: #1e9950;
+    border-color: #2ca05b;
+}
+
+.OrderEdit__inodeInner___WHeqP{
+	background: #08c;
+	color: #fff;
+	padding:2px 5px;
+}
+
+.OrderEdit__inodeInner____Mtq9T{
+	background: none;
+	color: #000;
+	padding:2px 5px;
+}
+.OrderEdit__lwh___mf62l{
+	display: none;
+}

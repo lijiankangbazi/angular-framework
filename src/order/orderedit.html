@@ -1,0 +1,173 @@
+	<div class={{style.content}}>
+		<form id="orderForm" name="orderForm">
+			<!--  <input type="hidden" id="orderId" name="orderId" value=""/> -->
+			<div class={{style.line}}>
+ 			<div class={{style.module}}>
+ 				<label>起始港<span style="color: red;">*</span></label>
+ 				<div class="input-incomplete" data-source="/airport/query" cb-fnc="airportsCB" >
+ 					<input id="departName" ng-model="order.departName" required placeholder="请输入起始港"/>
+ 			  </div>
+ 				<input type="hidden" id="departCode" ng-model="order.departCode" value="" />
+ 			</div>
+ 			<div class={{style.module}}>
+ 				<label>目的港<span style="color: red;">*</span></label>
+ 				<div class="input-incomplete" data-source="/airport/query" cb-fnc="airportsCB" >
+ 				<input id="arriveName" ng-model="order.arriveName" required value="" placeholder="请输入目的港"
+ 					 /></div>
+ 				<input type="hidden" id="arriveCode" ng-model="order.arriveCode" value="" />
+ 			</div>
+ 			<div class={{style.module}}>
+ 				<label>航班日期<span style="color: red;">*</span></label>
+ 				<input id="flightDate" ng-model="order.flightDate" required value="" placeholder="请输入航班日期"/>
+ 			</div>
+ 			<div class={{style.module}}>
+ 				<label>航空公司</label>
+ 				<input id="carrier" ng-model="order.carrier" value="" placeholder="请输入航空公司"
+ 					/>
+ 			</div>
+ 			<div class={{style.module}}>
+ 				<label>运费单价<span style="color: red;">*</span></label>
+ 				<input id="customerPrice" ng-model="order.customerPrice" required step="0.01" type="number" value="" placeholder="请输入运费单价"/>
+ 			</div>	
+ 			<div class={{style.module}}>
+ 				<label>货物类型</label>
+ 				<select id="cargoType" ng-model="order.cargoType" >
+ 					<option value="PH">普货</option>
+ 					<option value="JGH">监管货</option>
+ 				</select>
+ 			</div>	
+ 			<div class={{style.module}}>
+ 				<label>操作方式</label>
+ 				<select id="operateType" ng-model="order.operateType" >
+ 					<option value="ZC">正常</option>
+ 					<option value="ZBG">自报关</option>
+ 					<option value="ZJJ">自交接</option>
+ 					<option value="ZBGZJJ">自报关自交接</option>
+ 					<option value="HJXC">货交现场</option>
+ 				</select>
+ 			</div>
+ 		</div>
+ 		<div style="clear:both"></div>
+ 		<div class={{style.line}}>
+ 			<div class={{style.module}}>
+ 				<label>发货人<span style="color:red">*</span></label>
+ 				<div class="input-incomplete" data-source="/cs/query" cb-fnc="shipperCB" >
+ 					<input style="width:398px;" id="shipper" ng-model="order.shipper" required value="" placeholder="请输入发货人"/>
+ 			  </div>
+
+ 			</div>
+ 			<div class={{style.module}}>
+ 				<label>收货人<span style="color:red">*</span></label>
+ 				<div class="input-incomplete" data-source="/cs/query" cb-fnc="shipperCB" >
+ 					<input style="width:530px;" id="consignee" ng-model="order.consignee" required value="" placeholder="请输入收货人"/>
+ 			  </div>
+
+ 			</div>
+ 		</div>
+ 		<div style="clear:both"></div>
+ 		<div class={{style.line}}>
+ 			<div class={{style.module}}>
+ 				<label>通知人<span style="color:red">*</span></label>
+ 				<div class="input-incomplete" data-source="/cs/query" cb-fnc="shipperCB" >
+ 					<input style="width:398px;" id="notifier" ng-model="order.notifier" value="" placeholder="请输入通知人"/>
+ 				</div>
+
+ 			</div>
+ 			<div class={{style.module}}>
+ 				<label>品名<span style="color:red">*</span></label>
+ 				<input id="cargoCnName" ng-model="order.cargoCnName" required value="" placeholder="请输入品名"/>
+ 			</div>
+ 			<div class={{style.module}} style="margin: 2px 6px;">
+ 				<label>件数<span style="color:red">*</span></label>
+ 				<input style="width:36px;" type="number" id="cargoNumber" ng-model="order.cargoNumber" required value="" placeholder="件数"/>
+
+ 			</div>
+ 			<div class={{style.module}} style="margin: 2px 6px;">
+ 				<label>重量(kg)<span style="color:red">*</span></label>
+ 				<input style="width:36px;" id="weight" type="number" step="0.01" ng-model="order.weight" required value="" placeholder="重量"/>
+ 			</div>
+ 			<div class={{style.module}} style="margin: 2px 6px;">
+ 				<label>体积<span style="color:red">*</span></label>
+ 				<input style="width:36px;" id="volume" type="number" step="0.01" ng-model="order.volume" required value="" placeholder="体积"/>
+ 			</div>
+<!--  			<div class={{style.module}} style="margin: 2px 6px;">
+ 				<label>长(cm)</label>
+ 				<input style="width:36px;" id="length" type="number" step="0.01" ng-model="order.length" value="" placeholder="长"/>
+ 			</div>
+ 			<div class={{style.module}} style="margin: 2px 6px;">
+ 				<label>宽(cm)</label>
+ 				<input style="width:36px;" id="width" type="number" step="0.01" ng-model="order.width" value="" placeholder="宽"/>
+ 			</div>
+ 			<div class={{style.module}} style="margin: 2px 6px;">
+ 				<label>高(cm)</label>
+ 				<input style="width:36px;" id="height" ng-model="order.height" value="" placeholder="高"/>
+ 			</div> -->
+ 		</div>
+ 		<div style="clear:both"></div>
+ 		<div class={{style.line}} >
+ 			<div><label style="display:inline-block;">长(cm)</label> <label style="display:inline-block;">宽(cm)</label> <label style="display:inline-block;">高(cm)</label> <label style="display:inline-block;" ng-click="model.addLwh()">+</label></div>
+
+ 			<div ng-repeat="lwh in lwhs">
+	 			<div class={{style.module}} style="margin: 2px 6px;">
+	 				<input style="width:36px;" id="length" type="number" step="0.01" ng-model="order.length" value="" placeholder="长"/>
+	 			</div>
+	 			<div class={{style.module}} style="margin: 2px 6px;">
+	 				<input style="width:36px;" id="width" type="number" step="0.01" ng-model="order.width" value="" placeholder="宽"/>
+	 			</div>
+	 			<div class={{style.module}} style="margin: 2px 6px;">
+	 				<input style="width:36px;" id="height" ng-model="order.height" value="" placeholder="高"/>
+	 			</div>
+ 			</div>
+ 		</div>
+ 		<div style="clear:both"></div>
+ 		<div class={{style.line}}>
+ 			<div class={{style.module}}>
+ 				<label>包装</label>
+ 				<input id="pack" ng-model="order.pack" value="" placeholder="请输入包装方式"/>
+ 			</div>
+ 			<div class={{style.module}}>
+ 				<label>比重</label>
+ 				<input id="proportion" ng-model="order.proportion" value="" placeholder="请输入比重"/>
+ 			</div>
+ 			<div class={{style.module}}>
+ 				<label>分泡比例</label>
+ 				<input id="fraction" ng-model="order.fraction" value="" placeholder="请输入分泡比例"/>
+ 			</div>	 			
+ 			<div class={{style.module}}>
+ 				<label>付款方式</label>
+ 				<select id="payType" ng-model="order.payType" style="width:122px">
+ 					<option value="YF">预付</option>
+ 					<option value="DF">到付</option>
+ 				</select>
+ 			</div>
+ 			<div class={{style.module}}>
+ 				<label>进仓编号</label>
+ 				<input style="width:100px;" id="warehouseNo" ng-model="order.warehouseNo" value="" placeholder="请输入进仓编号"/>
+ 			</div>
+ 			<div class={{style.module}}>
+ 				<label>备注</label>
+ 				<input style="width:240px;" id="customerRemark" ng-model="order.customerRemark" value="" placeholder="请输入备注"/>
+ 			</div>	
+ 		</div>	
+ 		<div style="clear:both"></div> 		
+ 		<div class={{style.line}}>	
+ 			<div class={{style.module}}>
+ 				<label>操作联系人</label>
+ 				<input type="hidden" id="csStaffId" ng-model="order.csStaffId" value="" />
+ 				<select id="csStaffName" ng-model="order.csStaffName" style="width:122px" o>
+ 					<option value="1">客服1</option>
+ 					<option value="2">客服2</option>
+ 					<option value="3">客服3</option>
+ 				</select>
+ 			</div>
+ 			<div class={{style.module}}>
+ 				<label>联系方式</label>
+ 				<input style="width:100px;" id="csStaffPhone" ng-model="order.csStaffPhone" value=""/>
+ 			</div>
+ 		</div>	 	
+ 		<div style="clear:both"></div> 					
+ 		<div class={{style.line}}>	
+ 			<input class={{style.btn}} type="submit" ng-click="model.saveOrder(this)"  value="创建订单"/>
+ 		</div> 		
+		</form>
+	</div>

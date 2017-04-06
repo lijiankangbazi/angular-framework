@@ -21,7 +21,6 @@ export default function pagination() {
     },
     pageChanged: function (pageObj, search) {
       pageObj.start = (pageObj.currentPage - 1) * pageObj.length;
-      search();
     }
   }
 };

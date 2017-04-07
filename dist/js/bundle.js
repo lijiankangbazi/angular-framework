@@ -4894,6 +4894,7 @@ webpackJsonp([0],[
 
 		$scope.style = _header2["default"];
 		this.test = "test1";
+		this.style = _header2["default"];
 	};
 
 	// HeaderController.$inject = ['$scope'];
@@ -4969,8 +4970,6 @@ webpackJsonp([0],[
 
 	var User = function User() {
 	  _classCallCheck(this, User);
-
-	  alert(1);
 	};
 
 	exports['default'] = User;

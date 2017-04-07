@@ -5,6 +5,7 @@ export default class HeaderController {
 	constructor($scope) {
     $scope.style = style;
 		this.test = "test1";
+    this.style = style;
 	}
 
 

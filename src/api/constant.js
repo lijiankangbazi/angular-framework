@@ -3,3 +3,4 @@ module.exports = angular.module('constant', [])
 		baseUrl:"/api/"
 	})
 	.name;
+  

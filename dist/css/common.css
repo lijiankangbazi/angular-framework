@@ -14,6 +14,7 @@ body {
 	margin-right: auto;
 	background-color: #fff;
 	margin-top: 50px;
+    overflow: hidden;
 }
 
 input{
@@ -30,6 +31,14 @@ input{
 
 .clear {
 	clear: both;
+}
+
+.content {
+    margin-top: 10px;
+}
+
+.crumbs {
+    margin-left: 10px;
 }
 		
 	

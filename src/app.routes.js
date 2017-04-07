@@ -12,13 +12,18 @@ export default function routing($urlRouterProvider, $locationProvider,$stateProv
 	      controllerAs: 'model'
 	   }).state('orderedit', {
 	      url: '/orderedit',
-	      template: require('./order/orderedit.html'),
+	      template: require('./modules/order/orderEdit.html'),
 	      controller: 'orderEdit',
 	      controllerAs: 'model'
 	   }).state('demo', {
         url: '/demo',
-        template: require('./demo/demo.html'),
+        template: require('./modules/demo/demo.html'),
         controller: 'demo',
+        controllerAs: 'model'
+     }).state('user', {
+        url: '/user',
+        template: require('./modules/system/user.html'),
+        controller: 'user',
         controllerAs: 'model'
      });
 }

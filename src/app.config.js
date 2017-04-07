@@ -1,6 +1,6 @@
 import routing from './app.routes';
 import uirouter from 'angular-ui-router';
-import controllers from './app.config.controllers';
+import controllers from './app.controllers';
 
 /*Paging component*/
 import pagination from './api/pagination';

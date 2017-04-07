@@ -31,6 +31,13 @@
 						</ul>
 					</li>
 					<li class={{style.firstLayer}}>
+						<span>系统管理</span>
+						<ul>
+							<li><a class="" ui-sref="user">用户管理</a></li>
+							<li>镜像</li>
+						</ul>
+					</li>
+					<li class={{style.firstLayer}}>
 						<span>
 							<a ui-sref="demo">demo</a>
 						</span>
@@ -39,9 +46,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="container">
-		<div ui-view>
-		</div>
+	<div ui-view class="container">
 	</div>
 </body>
 </html>

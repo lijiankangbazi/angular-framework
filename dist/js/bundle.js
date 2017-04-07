@@ -53,9 +53,9 @@ webpackJsonp([0],[
 
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 
-	var _appConfig = __webpack_require__(9);
+	var _app3 = __webpack_require__(22);
 
-	var _appConfig2 = _interopRequireDefault(_appConfig);
+	var _app4 = _interopRequireDefault(_app3);
 
 	var _pagination = __webpack_require__(13);
 
@@ -72,7 +72,7 @@ webpackJsonp([0],[
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 	/* Global constant */
-	module.exports = angular.module('app', [_angularUiRouter2['default'], _appConfig2['default'], _constant2['default']]).config(_app2['default']).factory('pagination', _pagination2['default']).factory('http', _http2['default']);
+	module.exports = angular.module('app', [_angularUiRouter2['default'], _app4['default'], _constant2['default']]).config(_app2['default']).factory('pagination', _pagination2['default']).factory('http', _http2['default']);
 
 	/*Paging component*/
 
@@ -83,40 +83,40 @@ webpackJsonp([0],[
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-			value: true
+	   value: true
 	});
 	exports['default'] = routing;
 
 	routing.$inject = ['$urlRouterProvider', '$locationProvider', '$stateProvider'];
 
 	function routing($urlRouterProvider, $locationProvider, $stateProvider) {
-			$locationProvider.html5Mode(false);
-			$urlRouterProvider.otherwise('/');
+	   $locationProvider.html5Mode(false);
+	   $urlRouterProvider.otherwise('/');
 
-			$stateProvider.state('header', {
-					url: '/header',
-					controller: 'header',
-					controllerAs: 'model'
-			}).state('orderedit', {
-					url: '/orderedit',
-					template: __webpack_require__(7),
-					controller: 'orderEdit',
-					controllerAs: 'model'
-			}).state('demo', {
-					url: '/demo',
-					template: __webpack_require__(20),
-					controller: 'demo',
-					controllerAs: 'model'
-			});
+	   $stateProvider.state('header', {
+	      url: '/header',
+	      controller: 'header',
+	      controllerAs: 'model'
+	   }).state('orderedit', {
+	      url: '/orderedit',
+	      template: __webpack_require__(36),
+	      controller: 'orderEdit',
+	      controllerAs: 'model'
+	   }).state('demo', {
+	      url: '/demo',
+	      template: __webpack_require__(29),
+	      controller: 'demo',
+	      controllerAs: 'model'
+	   }).state('user', {
+	      url: '/user',
+	      template: __webpack_require__(32),
+	      controller: 'user',
+	      controllerAs: 'model'
+	   });
 	}
 
 /***/ },
-/* 7 */
-/***/ function(module, exports) {
-
-	module.exports = "\t<div class={{style.content}}>\r\n\t\t<form id=\"orderForm\" name=\"orderForm\">\r\n\t\t\t<!--  <input type=\"hidden\" id=\"orderId\" name=\"orderId\" value=\"\"/> -->\r\n\t\t\t<div class={{style.line}}>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>起始港<span style=\"color: red;\">*</span></label>\r\n \t\t\t\t<div class=\"input-incomplete\" data-source=\"/airport/query\" cb-fnc=\"airportsCB\" >\r\n \t\t\t\t\t<input id=\"departName\" ng-model=\"order.departName\" required placeholder=\"请输入起始港\"/>\r\n \t\t\t  </div>\r\n \t\t\t\t<input type=\"hidden\" id=\"departCode\" ng-model=\"order.departCode\" value=\"\" />\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>目的港<span style=\"color: red;\">*</span></label>\r\n \t\t\t\t<div class=\"input-incomplete\" data-source=\"/airport/query\" cb-fnc=\"airportsCB\" >\r\n \t\t\t\t<input id=\"arriveName\" ng-model=\"order.arriveName\" required value=\"\" placeholder=\"请输入目的港\"\r\n \t\t\t\t\t /></div>\r\n \t\t\t\t<input type=\"hidden\" id=\"arriveCode\" ng-model=\"order.arriveCode\" value=\"\" />\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>航班日期<span style=\"color: red;\">*</span></label>\r\n \t\t\t\t<input id=\"flightDate\" ng-model=\"order.flightDate\" required value=\"\" placeholder=\"请输入航班日期\"/>\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>航空公司</label>\r\n \t\t\t\t<input id=\"carrier\" ng-model=\"order.carrier\" value=\"\" placeholder=\"请输入航空公司\"\r\n \t\t\t\t\t/>\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>运费单价<span style=\"color: red;\">*</span></label>\r\n \t\t\t\t<input id=\"customerPrice\" ng-model=\"order.customerPrice\" required step=\"0.01\" type=\"number\" value=\"\" placeholder=\"请输入运费单价\"/>\r\n \t\t\t</div>\t\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>货物类型</label>\r\n \t\t\t\t<select id=\"cargoType\" ng-model=\"order.cargoType\" >\r\n \t\t\t\t\t<option value=\"PH\">普货</option>\r\n \t\t\t\t\t<option value=\"JGH\">监管货</option>\r\n \t\t\t\t</select>\r\n \t\t\t</div>\t\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>操作方式</label>\r\n \t\t\t\t<select id=\"operateType\" ng-model=\"order.operateType\" >\r\n \t\t\t\t\t<option value=\"ZC\">正常</option>\r\n \t\t\t\t\t<option value=\"ZBG\">自报关</option>\r\n \t\t\t\t\t<option value=\"ZJJ\">自交接</option>\r\n \t\t\t\t\t<option value=\"ZBGZJJ\">自报关自交接</option>\r\n \t\t\t\t\t<option value=\"HJXC\">货交现场</option>\r\n \t\t\t\t</select>\r\n \t\t\t</div>\r\n \t\t</div>\r\n \t\t<div style=\"clear:both\"></div>\r\n \t\t<div class={{style.line}}>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>发货人<span style=\"color:red\">*</span></label>\r\n \t\t\t\t<div class=\"input-incomplete\" data-source=\"/cs/query\" cb-fnc=\"shipperCB\" >\r\n \t\t\t\t\t<input style=\"width:398px;\" id=\"shipper\" ng-model=\"order.shipper\" required value=\"\" placeholder=\"请输入发货人\"/>\r\n \t\t\t  </div>\r\n\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>收货人<span style=\"color:red\">*</span></label>\r\n \t\t\t\t<div class=\"input-incomplete\" data-source=\"/cs/query\" cb-fnc=\"shipperCB\" >\r\n \t\t\t\t\t<input style=\"width:530px;\" id=\"consignee\" ng-model=\"order.consignee\" required value=\"\" placeholder=\"请输入收货人\"/>\r\n \t\t\t  </div>\r\n\r\n \t\t\t</div>\r\n \t\t</div>\r\n \t\t<div style=\"clear:both\"></div>\r\n \t\t<div class={{style.line}}>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>通知人<span style=\"color:red\">*</span></label>\r\n \t\t\t\t<div class=\"input-incomplete\" data-source=\"/cs/query\" cb-fnc=\"shipperCB\" >\r\n \t\t\t\t\t<input style=\"width:398px;\" id=\"notifier\" ng-model=\"order.notifier\" value=\"\" placeholder=\"请输入通知人\"/>\r\n \t\t\t\t</div>\r\n\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>品名<span style=\"color:red\">*</span></label>\r\n \t\t\t\t<input id=\"cargoCnName\" ng-model=\"order.cargoCnName\" required value=\"\" placeholder=\"请输入品名\"/>\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}} style=\"margin: 2px 6px;\">\r\n \t\t\t\t<label>件数<span style=\"color:red\">*</span></label>\r\n \t\t\t\t<input style=\"width:36px;\" type=\"number\" id=\"cargoNumber\" ng-model=\"order.cargoNumber\" required value=\"\" placeholder=\"件数\"/>\r\n\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}} style=\"margin: 2px 6px;\">\r\n \t\t\t\t<label>重量(kg)<span style=\"color:red\">*</span></label>\r\n \t\t\t\t<input style=\"width:36px;\" id=\"weight\" type=\"number\" step=\"0.01\" ng-model=\"order.weight\" required value=\"\" placeholder=\"重量\"/>\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}} style=\"margin: 2px 6px;\">\r\n \t\t\t\t<label>体积<span style=\"color:red\">*</span></label>\r\n \t\t\t\t<input style=\"width:36px;\" id=\"volume\" type=\"number\" step=\"0.01\" ng-model=\"order.volume\" required value=\"\" placeholder=\"体积\"/>\r\n \t\t\t</div>\r\n<!--  \t\t\t<div class={{style.module}} style=\"margin: 2px 6px;\">\r\n \t\t\t\t<label>长(cm)</label>\r\n \t\t\t\t<input style=\"width:36px;\" id=\"length\" type=\"number\" step=\"0.01\" ng-model=\"order.length\" value=\"\" placeholder=\"长\"/>\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}} style=\"margin: 2px 6px;\">\r\n \t\t\t\t<label>宽(cm)</label>\r\n \t\t\t\t<input style=\"width:36px;\" id=\"width\" type=\"number\" step=\"0.01\" ng-model=\"order.width\" value=\"\" placeholder=\"宽\"/>\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}} style=\"margin: 2px 6px;\">\r\n \t\t\t\t<label>高(cm)</label>\r\n \t\t\t\t<input style=\"width:36px;\" id=\"height\" ng-model=\"order.height\" value=\"\" placeholder=\"高\"/>\r\n \t\t\t</div> -->\r\n \t\t</div>\r\n \t\t<div style=\"clear:both\"></div>\r\n \t\t<div class={{style.line}} >\r\n \t\t\t<div><label style=\"display:inline-block;\">长(cm)</label> <label style=\"display:inline-block;\">宽(cm)</label> <label style=\"display:inline-block;\">高(cm)</label> <label style=\"display:inline-block;\" ng-click=\"model.addLwh()\">+</label></div>\r\n\r\n \t\t\t<div ng-repeat=\"lwh in lwhs\">\r\n\t \t\t\t<div class={{style.module}} style=\"margin: 2px 6px;\">\r\n\t \t\t\t\t<input style=\"width:36px;\" id=\"length\" type=\"number\" step=\"0.01\" ng-model=\"order.length\" value=\"\" placeholder=\"长\"/>\r\n\t \t\t\t</div>\r\n\t \t\t\t<div class={{style.module}} style=\"margin: 2px 6px;\">\r\n\t \t\t\t\t<input style=\"width:36px;\" id=\"width\" type=\"number\" step=\"0.01\" ng-model=\"order.width\" value=\"\" placeholder=\"宽\"/>\r\n\t \t\t\t</div>\r\n\t \t\t\t<div class={{style.module}} style=\"margin: 2px 6px;\">\r\n\t \t\t\t\t<input style=\"width:36px;\" id=\"height\" ng-model=\"order.height\" value=\"\" placeholder=\"高\"/>\r\n\t \t\t\t</div>\r\n \t\t\t</div>\r\n \t\t</div>\r\n \t\t<div style=\"clear:both\"></div>\r\n \t\t<div class={{style.line}}>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>包装</label>\r\n \t\t\t\t<input id=\"pack\" ng-model=\"order.pack\" value=\"\" placeholder=\"请输入包装方式\"/>\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>比重</label>\r\n \t\t\t\t<input id=\"proportion\" ng-model=\"order.proportion\" value=\"\" placeholder=\"请输入比重\"/>\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>分泡比例</label>\r\n \t\t\t\t<input id=\"fraction\" ng-model=\"order.fraction\" value=\"\" placeholder=\"请输入分泡比例\"/>\r\n \t\t\t</div>\t \t\t\t\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>付款方式</label>\r\n \t\t\t\t<select id=\"payType\" ng-model=\"order.payType\" style=\"width:122px\">\r\n \t\t\t\t\t<option value=\"YF\">预付</option>\r\n \t\t\t\t\t<option value=\"DF\">到付</option>\r\n \t\t\t\t</select>\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>进仓编号</label>\r\n \t\t\t\t<input style=\"width:100px;\" id=\"warehouseNo\" ng-model=\"order.warehouseNo\" value=\"\" placeholder=\"请输入进仓编号\"/>\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>备注</label>\r\n \t\t\t\t<input style=\"width:240px;\" id=\"customerRemark\" ng-model=\"order.customerRemark\" value=\"\" placeholder=\"请输入备注\"/>\r\n \t\t\t</div>\t\r\n \t\t</div>\t\r\n \t\t<div style=\"clear:both\"></div> \t\t\r\n \t\t<div class={{style.line}}>\t\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>操作联系人</label>\r\n \t\t\t\t<input type=\"hidden\" id=\"csStaffId\" ng-model=\"order.csStaffId\" value=\"\" />\r\n \t\t\t\t<select id=\"csStaffName\" ng-model=\"order.csStaffName\" style=\"width:122px\" o>\r\n \t\t\t\t\t<option value=\"1\">客服1</option>\r\n \t\t\t\t\t<option value=\"2\">客服2</option>\r\n \t\t\t\t\t<option value=\"3\">客服3</option>\r\n \t\t\t\t</select>\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>联系方式</label>\r\n \t\t\t\t<input style=\"width:100px;\" id=\"csStaffPhone\" ng-model=\"order.csStaffPhone\" value=\"\"/>\r\n \t\t\t</div>\r\n \t\t</div>\t \t\r\n \t\t<div style=\"clear:both\"></div> \t\t\t\t\t\r\n \t\t<div class={{style.line}}>\t\r\n \t\t\t<input class={{style.btn}} type=\"submit\" ng-click=\"model.saveOrder(this)\"  value=\"创建订单\"/>\r\n \t\t</div> \t\t\r\n\t\t</form>\r\n\t</div>";
-
-/***/ },
+/* 7 */,
 /* 8 */
 /***/ function(module, exports) {
 
@@ -4731,90 +4731,10 @@ webpackJsonp([0],[
 	})(window, window.angular);
 
 /***/ },
-/* 9 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _header = __webpack_require__(16);
-
-	var _header2 = _interopRequireDefault(_header);
-
-	var _OrderEdit = __webpack_require__(11);
-
-	var _OrderEdit2 = _interopRequireDefault(_OrderEdit);
-
-	var _demo = __webpack_require__(18);
-
-	var _demo2 = _interopRequireDefault(_demo);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	module.exports = angular.module('controllers', []).controller('header', _header2['default']).controller('demo', _demo2['default']).controller('orderEdit', _OrderEdit2['default']).name;
-
-/***/ },
+/* 9 */,
 /* 10 */,
-/* 11 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _OrderEdit = __webpack_require__(12);
-
-	var _OrderEdit2 = _interopRequireDefault(_OrderEdit);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var OrderEdit = function () {
-		function OrderEdit(http, $scope) {
-			_classCallCheck(this, OrderEdit);
-
-			this.http = http;
-			this.$scope = $scope;
-			this.$scope.style = _OrderEdit2['default'];
-			this.$scope.lwhs = [{}];
-		}
-
-		_createClass(OrderEdit, [{
-			key: 'addLwh',
-			value: function addLwh() {
-				var ss = {};
-				this.$scope.lwhs.push(ss);
-			}
-		}, {
-			key: 'saveOrder',
-			value: function saveOrder(obj) {
-				if (obj.orderForm.$invalid) {
-					return;
-				}
-				this.http.post('orders/order', this.$scope.order).then(function (data) {})['catch'](function (data) {
-					console.log(data);
-					alert("订单创建失败");
-				});
-			}
-		}]);
-
-		return OrderEdit;
-	}();
-
-	exports['default'] = OrderEdit;
-
-/***/ },
-/* 12 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"content":"OrderEdit__content___audjK","module":"OrderEdit__module___3mbQO","line":"OrderEdit__line___XFirf","btn":"OrderEdit__btn___3L9d8","inodeInner":"OrderEdit__inodeInner___WHeqP","inodeInner_":"OrderEdit__inodeInner____Mtq9T","lwh":"OrderEdit__lwh___mf62l"};
-
-/***/ },
+/* 11 */,
+/* 12 */,
 /* 13 */
 /***/ function(module, exports) {
 
@@ -4846,7 +4766,6 @@ webpackJsonp([0],[
 	    },
 	    pageChanged: function pageChanged(pageObj, search) {
 	      pageObj.start = (pageObj.currentPage - 1) * pageObj.length;
-	      search();
 	    }
 	  };
 	};
@@ -4910,7 +4829,49 @@ webpackJsonp([0],[
 	}
 
 /***/ },
-/* 16 */
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _header = __webpack_require__(25);
+
+	var _header2 = _interopRequireDefault(_header);
+
+	var _index = __webpack_require__(33);
+
+	var _index2 = _interopRequireDefault(_index);
+
+	var _index3 = __webpack_require__(34);
+
+	var _index4 = _interopRequireDefault(_index3);
+
+	var _demo = __webpack_require__(27);
+
+	var _demo2 = _interopRequireDefault(_demo);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	//订单模块controllers
+	module.exports = angular.module('controllers', [_index2['default'], _index4['default']]).controller('header', _header2['default']).controller('demo', _demo2['default']).name;
+	//系统管理模块controllers
+
+/***/ },
+/* 23 */,
+/* 24 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"content":"OrderEdit__content___SRmBY","module":"OrderEdit__module___3g_ev","line":"OrderEdit__line___qmTHt","btn":"OrderEdit__btn___2vCLG","inodeInner":"OrderEdit__inodeInner___10Sq1","inodeInner_":"OrderEdit__inodeInner____3TY0y","lwh":"OrderEdit__lwh___1ye7n"};
+
+/***/ },
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -4919,7 +4880,7 @@ webpackJsonp([0],[
 		value: true
 	});
 
-	var _header = __webpack_require__(17);
+	var _header = __webpack_require__(26);
 
 	var _header2 = _interopRequireDefault(_header);
 
@@ -4944,14 +4905,14 @@ webpackJsonp([0],[
 	exports["default"] = HeaderController;
 
 /***/ },
-/* 17 */
+/* 26 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"header":"header__header___Cynj7","layout":"header__layout___38ZQK","logo":"header__logo___15qqD","nav":"header__nav___264sD","firstLayer":"header__firstLayer___fn9sz","menu":"header__menu___115aD"};
+	module.exports = {"header":"header__header___AMEI8","layout":"header__layout___Rtmic","logo":"header__logo___Lt3N_","nav":"header__nav___20jGD","firstLayer":"header__firstLayer___7s5Ej","menu":"header__menu___352Mg"};
 
 /***/ },
-/* 18 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4960,7 +4921,7 @@ webpackJsonp([0],[
 	  value: true
 	});
 
-	var _demo = __webpack_require__(19);
+	var _demo = __webpack_require__(28);
 
 	var _demo2 = _interopRequireDefault(_demo);
 
@@ -4977,16 +4938,142 @@ webpackJsonp([0],[
 	exports['default'] = DemoController;
 
 /***/ },
-/* 19 */
+/* 28 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 20 */
+/* 29 */
 /***/ function(module, exports) {
 
 	module.exports = "<div>\r\n\tdemo\r\n</div>";
+
+/***/ },
+/* 30 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _user = __webpack_require__(31);
+
+	var _user2 = _interopRequireDefault(_user);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var User = function User() {
+	  _classCallCheck(this, User);
+
+	  alert(1);
+	};
+
+	exports['default'] = User;
+
+/***/ },
+/* 31 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 32 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"content\">\r\n\t<div class=\"crumbs\">\r\n\t\t<span>系统管理 > 用户管理</span>\r\n\t</div>\r\n</div>";
+
+/***/ },
+/* 33 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _user = __webpack_require__(30);
+
+	var _user2 = _interopRequireDefault(_user);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	module.exports = angular.module('systemcontrollers', []).controller('user', _user2['default']).name;
+
+/***/ },
+/* 34 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _orderEdit = __webpack_require__(35);
+
+	var _orderEdit2 = _interopRequireDefault(_orderEdit);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	module.exports = angular.module('ordercontrollers', []).controller('orderEdit', _orderEdit2['default']).name;
+
+/***/ },
+/* 35 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _OrderEdit = __webpack_require__(24);
+
+	var _OrderEdit2 = _interopRequireDefault(_OrderEdit);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var OrderEdit = function () {
+		function OrderEdit(http, $scope) {
+			_classCallCheck(this, OrderEdit);
+
+			this.http = http;
+			this.$scope = $scope;
+			this.$scope.style = _OrderEdit2['default'];
+			this.$scope.lwhs = [{}];
+		}
+
+		_createClass(OrderEdit, [{
+			key: 'addLwh',
+			value: function addLwh() {
+				var ss = {};
+				this.$scope.lwhs.push(ss);
+			}
+		}, {
+			key: 'saveOrder',
+			value: function saveOrder(obj) {
+				if (obj.orderForm.$invalid) {
+					return;
+				}
+				this.http.post('orders/order', this.$scope.order).then(function (data) {})['catch'](function (data) {
+					console.log(data);
+					alert("订单创建失败");
+				});
+			}
+		}]);
+
+		return OrderEdit;
+	}();
+
+	exports['default'] = OrderEdit;
+
+/***/ },
+/* 36 */
+/***/ function(module, exports) {
+
+	module.exports = "\t<div class={{style.content}}>\r\n\t\t<form id=\"orderForm\" name=\"orderForm\">\r\n\t\t\t<!--  <input type=\"hidden\" id=\"orderId\" name=\"orderId\" value=\"\"/> -->\r\n\t\t\t<div class={{style.line}}>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>起始港<span style=\"color: red;\">*</span></label>\r\n \t\t\t\t<div class=\"input-incomplete\" data-source=\"/airport/query\" cb-fnc=\"airportsCB\" >\r\n \t\t\t\t\t<input id=\"departName\" ng-model=\"order.departName\" required placeholder=\"请输入起始港\"/>\r\n \t\t\t  </div>\r\n \t\t\t\t<input type=\"hidden\" id=\"departCode\" ng-model=\"order.departCode\" value=\"\" />\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>目的港<span style=\"color: red;\">*</span></label>\r\n \t\t\t\t<div class=\"input-incomplete\" data-source=\"/airport/query\" cb-fnc=\"airportsCB\" >\r\n \t\t\t\t<input id=\"arriveName\" ng-model=\"order.arriveName\" required value=\"\" placeholder=\"请输入目的港\"\r\n \t\t\t\t\t /></div>\r\n \t\t\t\t<input type=\"hidden\" id=\"arriveCode\" ng-model=\"order.arriveCode\" value=\"\" />\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>航班日期<span style=\"color: red;\">*</span></label>\r\n \t\t\t\t<input id=\"flightDate\" ng-model=\"order.flightDate\" required value=\"\" placeholder=\"请输入航班日期\"/>\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>航空公司</label>\r\n \t\t\t\t<input id=\"carrier\" ng-model=\"order.carrier\" value=\"\" placeholder=\"请输入航空公司\"\r\n \t\t\t\t\t/>\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>运费单价<span style=\"color: red;\">*</span></label>\r\n \t\t\t\t<input id=\"customerPrice\" ng-model=\"order.customerPrice\" required step=\"0.01\" type=\"number\" value=\"\" placeholder=\"请输入运费单价\"/>\r\n \t\t\t</div>\t\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>货物类型</label>\r\n \t\t\t\t<select id=\"cargoType\" ng-model=\"order.cargoType\" >\r\n \t\t\t\t\t<option value=\"PH\">普货</option>\r\n \t\t\t\t\t<option value=\"JGH\">监管货</option>\r\n \t\t\t\t</select>\r\n \t\t\t</div>\t\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>操作方式</label>\r\n \t\t\t\t<select id=\"operateType\" ng-model=\"order.operateType\" >\r\n \t\t\t\t\t<option value=\"ZC\">正常</option>\r\n \t\t\t\t\t<option value=\"ZBG\">自报关</option>\r\n \t\t\t\t\t<option value=\"ZJJ\">自交接</option>\r\n \t\t\t\t\t<option value=\"ZBGZJJ\">自报关自交接</option>\r\n \t\t\t\t\t<option value=\"HJXC\">货交现场</option>\r\n \t\t\t\t</select>\r\n \t\t\t</div>\r\n \t\t</div>\r\n \t\t<div style=\"clear:both\"></div>\r\n \t\t<div class={{style.line}}>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>发货人<span style=\"color:red\">*</span></label>\r\n \t\t\t\t<div class=\"input-incomplete\" data-source=\"/cs/query\" cb-fnc=\"shipperCB\" >\r\n \t\t\t\t\t<input style=\"width:398px;\" id=\"shipper\" ng-model=\"order.shipper\" required value=\"\" placeholder=\"请输入发货人\"/>\r\n \t\t\t  </div>\r\n\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>收货人<span style=\"color:red\">*</span></label>\r\n \t\t\t\t<div class=\"input-incomplete\" data-source=\"/cs/query\" cb-fnc=\"shipperCB\" >\r\n \t\t\t\t\t<input style=\"width:530px;\" id=\"consignee\" ng-model=\"order.consignee\" required value=\"\" placeholder=\"请输入收货人\"/>\r\n \t\t\t  </div>\r\n\r\n \t\t\t</div>\r\n \t\t</div>\r\n \t\t<div style=\"clear:both\"></div>\r\n \t\t<div class={{style.line}}>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>通知人<span style=\"color:red\">*</span></label>\r\n \t\t\t\t<div class=\"input-incomplete\" data-source=\"/cs/query\" cb-fnc=\"shipperCB\" >\r\n \t\t\t\t\t<input style=\"width:398px;\" id=\"notifier\" ng-model=\"order.notifier\" value=\"\" placeholder=\"请输入通知人\"/>\r\n \t\t\t\t</div>\r\n\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>品名<span style=\"color:red\">*</span></label>\r\n \t\t\t\t<input id=\"cargoCnName\" ng-model=\"order.cargoCnName\" required value=\"\" placeholder=\"请输入品名\"/>\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}} style=\"margin: 2px 6px;\">\r\n \t\t\t\t<label>件数<span style=\"color:red\">*</span></label>\r\n \t\t\t\t<input style=\"width:36px;\" type=\"number\" id=\"cargoNumber\" ng-model=\"order.cargoNumber\" required value=\"\" placeholder=\"件数\"/>\r\n\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}} style=\"margin: 2px 6px;\">\r\n \t\t\t\t<label>重量(kg)<span style=\"color:red\">*</span></label>\r\n \t\t\t\t<input style=\"width:36px;\" id=\"weight\" type=\"number\" step=\"0.01\" ng-model=\"order.weight\" required value=\"\" placeholder=\"重量\"/>\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}} style=\"margin: 2px 6px;\">\r\n \t\t\t\t<label>体积<span style=\"color:red\">*</span></label>\r\n \t\t\t\t<input style=\"width:36px;\" id=\"volume\" type=\"number\" step=\"0.01\" ng-model=\"order.volume\" required value=\"\" placeholder=\"体积\"/>\r\n \t\t\t</div>\r\n<!--  \t\t\t<div class={{style.module}} style=\"margin: 2px 6px;\">\r\n \t\t\t\t<label>长(cm)</label>\r\n \t\t\t\t<input style=\"width:36px;\" id=\"length\" type=\"number\" step=\"0.01\" ng-model=\"order.length\" value=\"\" placeholder=\"长\"/>\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}} style=\"margin: 2px 6px;\">\r\n \t\t\t\t<label>宽(cm)</label>\r\n \t\t\t\t<input style=\"width:36px;\" id=\"width\" type=\"number\" step=\"0.01\" ng-model=\"order.width\" value=\"\" placeholder=\"宽\"/>\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}} style=\"margin: 2px 6px;\">\r\n \t\t\t\t<label>高(cm)</label>\r\n \t\t\t\t<input style=\"width:36px;\" id=\"height\" ng-model=\"order.height\" value=\"\" placeholder=\"高\"/>\r\n \t\t\t</div> -->\r\n \t\t</div>\r\n \t\t<div style=\"clear:both\"></div>\r\n \t\t<div class={{style.line}} >\r\n \t\t\t<div><label style=\"display:inline-block;\">长(cm)</label> <label style=\"display:inline-block;\">宽(cm)</label> <label style=\"display:inline-block;\">高(cm)</label> <label style=\"display:inline-block;\" ng-click=\"model.addLwh()\">+</label></div>\r\n\r\n \t\t\t<div ng-repeat=\"lwh in lwhs\">\r\n\t \t\t\t<div class={{style.module}} style=\"margin: 2px 6px;\">\r\n\t \t\t\t\t<input style=\"width:36px;\" id=\"length\" type=\"number\" step=\"0.01\" ng-model=\"order.length\" value=\"\" placeholder=\"长\"/>\r\n\t \t\t\t</div>\r\n\t \t\t\t<div class={{style.module}} style=\"margin: 2px 6px;\">\r\n\t \t\t\t\t<input style=\"width:36px;\" id=\"width\" type=\"number\" step=\"0.01\" ng-model=\"order.width\" value=\"\" placeholder=\"宽\"/>\r\n\t \t\t\t</div>\r\n\t \t\t\t<div class={{style.module}} style=\"margin: 2px 6px;\">\r\n\t \t\t\t\t<input style=\"width:36px;\" id=\"height\" ng-model=\"order.height\" value=\"\" placeholder=\"高\"/>\r\n\t \t\t\t</div>\r\n \t\t\t</div>\r\n \t\t</div>\r\n \t\t<div style=\"clear:both\"></div>\r\n \t\t<div class={{style.line}}>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>包装</label>\r\n \t\t\t\t<input id=\"pack\" ng-model=\"order.pack\" value=\"\" placeholder=\"请输入包装方式\"/>\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>比重</label>\r\n \t\t\t\t<input id=\"proportion\" ng-model=\"order.proportion\" value=\"\" placeholder=\"请输入比重\"/>\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>分泡比例</label>\r\n \t\t\t\t<input id=\"fraction\" ng-model=\"order.fraction\" value=\"\" placeholder=\"请输入分泡比例\"/>\r\n \t\t\t</div>\t \t\t\t\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>付款方式</label>\r\n \t\t\t\t<select id=\"payType\" ng-model=\"order.payType\" style=\"width:122px\">\r\n \t\t\t\t\t<option value=\"YF\">预付</option>\r\n \t\t\t\t\t<option value=\"DF\">到付</option>\r\n \t\t\t\t</select>\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>进仓编号</label>\r\n \t\t\t\t<input style=\"width:100px;\" id=\"warehouseNo\" ng-model=\"order.warehouseNo\" value=\"\" placeholder=\"请输入进仓编号\"/>\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>备注</label>\r\n \t\t\t\t<input style=\"width:240px;\" id=\"customerRemark\" ng-model=\"order.customerRemark\" value=\"\" placeholder=\"请输入备注\"/>\r\n \t\t\t</div>\t\r\n \t\t</div>\t\r\n \t\t<div style=\"clear:both\"></div> \t\t\r\n \t\t<div class={{style.line}}>\t\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>操作联系人</label>\r\n \t\t\t\t<input type=\"hidden\" id=\"csStaffId\" ng-model=\"order.csStaffId\" value=\"\" />\r\n \t\t\t\t<select id=\"csStaffName\" ng-model=\"order.csStaffName\" style=\"width:122px\" o>\r\n \t\t\t\t\t<option value=\"1\">客服1</option>\r\n \t\t\t\t\t<option value=\"2\">客服2</option>\r\n \t\t\t\t\t<option value=\"3\">客服3</option>\r\n \t\t\t\t</select>\r\n \t\t\t</div>\r\n \t\t\t<div class={{style.module}}>\r\n \t\t\t\t<label>联系方式</label>\r\n \t\t\t\t<input style=\"width:100px;\" id=\"csStaffPhone\" ng-model=\"order.csStaffPhone\" value=\"\"/>\r\n \t\t\t</div>\r\n \t\t</div>\t \t\r\n \t\t<div style=\"clear:both\"></div> \t\t\t\t\t\r\n \t\t<div class={{style.line}}>\t\r\n \t\t\t<input class={{style.btn}} type=\"submit\" ng-click=\"model.saveOrder(this)\"  value=\"创建订单\"/>\r\n \t\t</div> \t\t\r\n\t\t</form>\r\n\t</div>";
 
 /***/ }
 ]);
